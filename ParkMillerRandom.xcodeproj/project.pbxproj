@@ -13,6 +13,7 @@
 		76C964B71B584618001D9E78 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 76C964B61B584618001D9E78 /* Images.xcassets */; };
 		76C964BA1B584618001D9E78 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 76C964B81B584618001D9E78 /* LaunchScreen.xib */; };
 		76C964C61B584618001D9E78 /* ParkMillerRandomTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76C964C51B584618001D9E78 /* ParkMillerRandomTests.swift */; };
+		76C964D11B584645001D9E78 /* ParkMillerRandom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76C964D01B584645001D9E78 /* ParkMillerRandom.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +37,7 @@
 		76C964BF1B584618001D9E78 /* ParkMillerRandomTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ParkMillerRandomTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		76C964C41B584618001D9E78 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		76C964C51B584618001D9E78 /* ParkMillerRandomTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParkMillerRandomTests.swift; sourceTree = "<group>"; };
+		76C964D01B584645001D9E78 /* ParkMillerRandom.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParkMillerRandom.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,6 +79,7 @@
 		76C964AC1B584618001D9E78 /* ParkMillerRandom */ = {
 			isa = PBXGroup;
 			children = (
+				76C964CF1B58462C001D9E78 /* Classes */,
 				76C964AF1B584618001D9E78 /* AppDelegate.swift */,
 				76C964B11B584618001D9E78 /* ViewController.swift */,
 				76C964B31B584618001D9E78 /* Main.storyboard */,
@@ -110,6 +113,14 @@
 				76C964C41B584618001D9E78 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		76C964CF1B58462C001D9E78 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				76C964D01B584645001D9E78 /* ParkMillerRandom.swift */,
+			);
+			path = Classes;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -214,6 +225,7 @@
 			files = (
 				76C964B21B584618001D9E78 /* ViewController.swift in Sources */,
 				76C964B01B584618001D9E78 /* AppDelegate.swift in Sources */,
+				76C964D11B584645001D9E78 /* ParkMillerRandom.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
