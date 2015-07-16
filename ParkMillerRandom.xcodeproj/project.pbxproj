@@ -14,6 +14,8 @@
 		76C964BA1B584618001D9E78 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 76C964B81B584618001D9E78 /* LaunchScreen.xib */; };
 		76C964C61B584618001D9E78 /* ParkMillerRandomTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76C964C51B584618001D9E78 /* ParkMillerRandomTests.swift */; };
 		76C964D11B584645001D9E78 /* ParkMillerRandom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76C964D01B584645001D9E78 /* ParkMillerRandom.swift */; };
+		76C964D41B584EB5001D9E78 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = 76C964D21B584EB5001D9E78 /* LICENSE */; };
+		76C964D51B584EB5001D9E78 /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = 76C964D31B584EB5001D9E78 /* README.md */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,6 +40,8 @@
 		76C964C41B584618001D9E78 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		76C964C51B584618001D9E78 /* ParkMillerRandomTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParkMillerRandomTests.swift; sourceTree = "<group>"; };
 		76C964D01B584645001D9E78 /* ParkMillerRandom.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParkMillerRandom.swift; sourceTree = "<group>"; };
+		76C964D21B584EB5001D9E78 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = SOURCE_ROOT; };
+		76C964D31B584EB5001D9E78 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -93,6 +97,8 @@
 		76C964AD1B584618001D9E78 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				76C964D21B584EB5001D9E78 /* LICENSE */,
+				76C964D31B584EB5001D9E78 /* README.md */,
 				76C964AE1B584618001D9E78 /* Info.plist */,
 			);
 			name = "Supporting Files";
@@ -205,6 +211,7 @@
 			files = (
 				76C964B51B584618001D9E78 /* Main.storyboard in Resources */,
 				76C964BA1B584618001D9E78 /* LaunchScreen.xib in Resources */,
+				76C964D41B584EB5001D9E78 /* LICENSE in Resources */,
 				76C964B71B584618001D9E78 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -225,6 +232,7 @@
 			files = (
 				76C964B21B584618001D9E78 /* ViewController.swift in Sources */,
 				76C964B01B584618001D9E78 /* AppDelegate.swift in Sources */,
+				76C964D51B584EB5001D9E78 /* README.md in Sources */,
 				76C964D11B584645001D9E78 /* ParkMillerRandom.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
