@@ -75,20 +75,46 @@ struct ParkMillerRandom {
 }
 
 extension ParkMillerRandom {
+    /**
+    Generates a random Int from entire spectrum.
+    
+    :returns: Int
+    */
     mutating func nextInt() -> Int {
         return Int(gen())
     }
     
+    /**
+    Generates a random Int from entire spectrum.
+    
+    :param: min minimum
+    :param: max maximum
+    
+    :returns: Int in range [min, max]
+    */
     mutating func nextInt(#min: Int, max: Int) -> Int {
         let b = Float(min) - dif
         let t = Float(max) + dif
         return Int(round(b + ((t - b) * nextFloat())))
     }
     
+    /**
+    Generates a random Float in [0,1] range
+    
+    :returns: Float [0,1]
+    */
     mutating func nextFloat() -> Float {
         return (Float(gen()) / Float(r0))
     }
     
+    /**
+    Generates a random Float from entire spectrum.
+    
+    :param: min minimum
+    :param: max maximum
+    
+    :returns: Float in range [min, max]
+    */
     mutating func nextFloat(#min: Float, max: Float) -> Float {
         return (min + ((max - min) * nextFloat()))
     }
