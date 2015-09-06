@@ -49,22 +49,28 @@ private let dif:Float = 0.4999
 
 struct ParkMillerRandom {
     /// Allow seeds between [1, 0X7FFFFFFE]
+    private var internalSeed: UInt32 = 1
     var seed: UInt32 {
         set {
             if newValue < 1 {
-                seed = 1
+                internalSeed = 1
             }
             else {
-                seed = newValue
+                internalSeed = newValue
             }
         }
         get {
-            return self.seed
+            return internalSeed
         }
     }
     
     init(seed: UInt32) {
-        self.seed = seed
+        if seed < 1 {
+            internalSeed = 1
+        }
+        else {
+            internalSeed = seed
+        }
     }
 }
 
@@ -94,8 +100,9 @@ extension ParkMillerRandom {
 */
 extension ParkMillerRandom {
     private mutating func gen() -> UInt32 {
-        seed = (seed * r1) % r0;
-        return seed
+        let value = UInt(internalSeed) * UInt(r1) % UInt(r0)
+        internalSeed = UInt32(value)
+        return internalSeed
     }
 }
 
