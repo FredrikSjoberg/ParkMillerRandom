@@ -99,6 +99,23 @@ extension ParkMillerRandom {
     }
     
     /**
+    Generates a random Int bounded by the Range
+    
+    :param: min minimum
+    :param: max maximum
+    
+    :returns: Int in range [min, max]
+    */
+    mutating func nextInt(range: Range<Int>) -> Int {
+        if range.startIndex > range.endIndex {
+            return nextInt(min: range.endIndex, max: range.startIndex)
+        }
+        else {
+            return nextInt(min: range.startIndex, max: range.endIndex)
+        }
+    }
+    
+    /**
     Generates a random Float in [0,1] range
     
     :returns: Float [0,1]
@@ -117,6 +134,23 @@ extension ParkMillerRandom {
     */
     mutating func nextFloat(#min: Float, max: Float) -> Float {
         return (min + ((max - min) * nextFloat()))
+    }
+    
+    /**
+    Generates a random Float bounded by the Range
+    
+    :param: min minimum
+    :param: max maximum
+    
+    :returns: Float in range [min, max]
+    */
+    mutating func nextFloat(range: Range<Int>) -> Float {
+        if range.startIndex > range.endIndex {
+            return nextFloat(min: Float(range.endIndex), max: Float(range.startIndex))
+        }
+        else {
+            return nextFloat(min: Float(range.startIndex), max: Float(range.endIndex))
+        }
     }
 }
 
