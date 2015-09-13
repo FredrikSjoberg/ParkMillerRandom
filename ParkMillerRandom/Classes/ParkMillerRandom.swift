@@ -92,7 +92,7 @@ extension ParkMillerRandom {
     
     :returns: Int in range [min, max]
     */
-    mutating func nextInt(#min: Int, max: Int) -> Int {
+    mutating func nextInt(min min: Int, max: Int) -> Int {
         let b = Float(min) - dif
         let t = Float(max) + dif
         return Int(round(b + ((t - b) * nextFloat())))
@@ -132,7 +132,7 @@ extension ParkMillerRandom {
     
     :returns: Float in range [min, max]
     */
-    mutating func nextFloat(#min: Float, max: Float) -> Float {
+    mutating func nextFloat(min min: Float, max: Float) -> Float {
         return (min + ((max - min) * nextFloat()))
     }
     
