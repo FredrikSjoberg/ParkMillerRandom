@@ -48,7 +48,7 @@ private let r0:UInt32 = 2147483647
 private let r1:UInt32 = 16807
 private let dif:Float = 0.4999
 
-@objc class ParkMillerRandom : NSObject {
+class ParkMillerRandom {
     /// Allow seeds between [1, 0X7FFFFFFE]
     private var internalSeed: UInt32 = 1
     var seed: UInt32 {
@@ -93,7 +93,7 @@ extension ParkMillerRandom : GKRandom {
     
     - returns: Int
     */
-    func nextInt() -> Int {
+    @objc func nextInt() -> Int {
         return Int(gen())
     }
     
@@ -104,7 +104,7 @@ extension ParkMillerRandom : GKRandom {
     
     - returns: Int 
     */
-    func nextIntWithUpperBound(upperBound: Int) -> Int {
+    @objc func nextIntWithUpperBound(upperBound: Int) -> Int {
         let low = -dif
         let high = Float(upperBound) + dif
         return Int(low + ((high - low) * nextUniform()))
@@ -115,7 +115,7 @@ extension ParkMillerRandom : GKRandom {
     
     - returns: Float [0,1]
     */
-    func nextUniform() -> Float {
+    @objc func nextUniform() -> Float {
         return Float(gen()) / Float(r0)
     }
     
@@ -124,7 +124,7 @@ extension ParkMillerRandom : GKRandom {
     
     - returns: true or false
     */
-    func nextBool() -> Bool {
+    @objc func nextBool() -> Bool {
         let x = nextUniform()
         if x <= dif { return true }
         else { return false }
