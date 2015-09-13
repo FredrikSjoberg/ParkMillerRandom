@@ -78,7 +78,7 @@ extension ParkMillerRandom {
     /**
     Generates a random Int from entire spectrum.
     
-    :returns: Int
+    - returns: Int
     */
     mutating func nextInt() -> Int {
         return Int(gen())
@@ -87,10 +87,10 @@ extension ParkMillerRandom {
     /**
     Generates a random Int from entire spectrum.
     
-    :param: min minimum
-    :param: max maximum
+    - parameter min: minimum
+    - parameter max: maximum
     
-    :returns: Int in range [min, max]
+    - returns: Int in range [min, max]
     */
     mutating func nextInt(min min: Int, max: Int) -> Int {
         let b = Float(min) - dif
@@ -101,10 +101,10 @@ extension ParkMillerRandom {
     /**
     Generates a random Int bounded by the Range
     
-    :param: min minimum
-    :param: max maximum
+    - parameter min: minimum
+    - parameter max: maximum
     
-    :returns: Int in range [min, max]
+    - returns: Int in range [min, max]
     */
     mutating func nextInt(range: Range<Int>) -> Int {
         if range.startIndex > range.endIndex {
@@ -118,7 +118,7 @@ extension ParkMillerRandom {
     /**
     Generates a random Float in [0,1] range
     
-    :returns: Float [0,1]
+    - returns: Float [0,1]
     */
     mutating func nextFloat() -> Float {
         return (Float(gen()) / Float(r0))
@@ -127,10 +127,10 @@ extension ParkMillerRandom {
     /**
     Generates a random Float from entire spectrum.
     
-    :param: min minimum
-    :param: max maximum
+    - parameter min: minimum
+    - parameter max: maximum
     
-    :returns: Float in range [min, max]
+    - returns: Float in range [min, max]
     */
     mutating func nextFloat(min min: Float, max: Float) -> Float {
         return (min + ((max - min) * nextFloat()))
@@ -139,10 +139,10 @@ extension ParkMillerRandom {
     /**
     Generates a random Float bounded by the Range
     
-    :param: min minimum
-    :param: max maximum
+    - parameter min: minimum
+    - parameter max: maximum
     
-    :returns: Float in range [min, max]
+    - returns: Float in range [min, max]
     */
     mutating func nextFloat(range: Range<Int>) -> Float {
         if range.startIndex > range.endIndex {
