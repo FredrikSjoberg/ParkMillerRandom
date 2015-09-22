@@ -42,12 +42,13 @@
 //
 
 import Foundation
+import GameplayKit
 
 private let r0:UInt32 = 2147483647
 private let r1:UInt32 = 16807
 private let dif:Float = 0.4999
 
-struct ParkMillerRandom {
+class ParkMillerRandom {
     /// Allow seeds between [1, 0X7FFFFFFE]
     private var internalSeed: UInt32 = 1
     var seed: UInt32 {
@@ -74,95 +75,58 @@ struct ParkMillerRandom {
     }
 }
 
-extension ParkMillerRandom {
-    /**
-    Generates a random Int from entire spectrum.
-    
-    :returns: Int
-    */
-    mutating func nextInt() -> Int {
-        return Int(gen())
-    }
-    
-    /**
-    Generates a random Int from entire spectrum.
-    
-    :param: min minimum
-    :param: max maximum
-    
-    :returns: Int in range [min, max]
-    */
-    mutating func nextInt(#min: Int, max: Int) -> Int {
-        let b = Float(min) - dif
-        let t = Float(max) + dif
-        return Int(round(b + ((t - b) * nextFloat())))
-    }
-    
-    /**
-    Generates a random Int bounded by the Range
-    
-    :param: min minimum
-    :param: max maximum
-    
-    :returns: Int in range [min, max]
-    */
-    mutating func nextInt(range: Range<Int>) -> Int {
-        if range.startIndex > range.endIndex {
-            return nextInt(min: range.endIndex, max: range.startIndex)
-        }
-        else {
-            return nextInt(min: range.startIndex, max: range.endIndex)
-        }
-    }
-    
-    /**
-    Generates a random Float in [0,1] range
-    
-    :returns: Float [0,1]
-    */
-    mutating func nextFloat() -> Float {
-        return (Float(gen()) / Float(r0))
-    }
-    
-    /**
-    Generates a random Float from entire spectrum.
-    
-    :param: min minimum
-    :param: max maximum
-    
-    :returns: Float in range [min, max]
-    */
-    mutating func nextFloat(#min: Float, max: Float) -> Float {
-        return (min + ((max - min) * nextFloat()))
-    }
-    
-    /**
-    Generates a random Float bounded by the Range
-    
-    :param: min minimum
-    :param: max maximum
-    
-    :returns: Float in range [min, max]
-    */
-    mutating func nextFloat(range: Range<Int>) -> Float {
-        if range.startIndex > range.endIndex {
-            return nextFloat(min: Float(range.endIndex), max: Float(range.startIndex))
-        }
-        else {
-            return nextFloat(min: Float(range.startIndex), max: Float(range.endIndex))
-        }
-    }
-}
-
 /**
 * generator:
 * new-value = (old-value * 16807) mod (2^31 - 1)
 */
 extension ParkMillerRandom {
-    private mutating func gen() -> UInt32 {
+    private func gen() -> UInt32 {
         let value = UInt(internalSeed) * UInt(r1) % UInt(r0)
         internalSeed = UInt32(value)
         return internalSeed
     }
 }
 
+extension ParkMillerRandom : GKRandom {
+    /**
+    Generates a random Int from entire spectrum.
+    
+    - returns: Int
+    */
+    @objc func nextInt() -> Int {
+        return Int(gen())
+    }
+    
+    /**
+    Generates a random Int less than upperBound
+    
+    - parameter upperBound: maximum
+    
+    - returns: Int 
+    */
+    @objc func nextIntWithUpperBound(upperBound: Int) -> Int {
+        let low = -dif
+        let high = Float(upperBound) + dif
+        return Int(low + ((high - low) * nextUniform()))
+    }
+    
+    /**
+    Generates a random Float in [0,1] range
+    
+    - returns: Float [0,1]
+    */
+    @objc func nextUniform() -> Float {
+        return Float(gen()) / Float(r0)
+    }
+    
+    /**
+    Generates a random Bool
+    
+    - returns: true or false
+    */
+    @objc func nextBool() -> Bool {
+        let x = nextUniform()
+        if x <= dif { return true }
+        else { return false }
+    }
+}
